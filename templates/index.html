@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070b14">
+  <title>DOCUSCAN — Document Intelligence</title>
+  <link rel="icon" href="/static/img/favicon=.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <header class="topbar">
+    <a class="brand" href="/">
+      <span class="brand-mark">D</span>
+      <span>
+      
+        <strong>DocuSCAN</strong>
+        <small>Document Intelligence</small>
+      </span>
+    </a>
+    <div class="status-pill">
+      <span class="status-dot"></span>
+      <span id="systemStatus">System ready</span>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">RAG WORKSPACE · GROQ POWERED</div>
+        <h1>Ask your documents<br><span>anything.</span></h1>
+        <p>Upload your PDFs or notes, retrieve the most relevant context, and get grounded answers with transparent source chunks.</p>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card">
+          <span id="docCount">0</span>
+          <small>Documents</small>
+        </div>
+        <div class="stat-card">
+          <span id="chunkCount">0</span>
+          <small>Indexed chunks</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <aside class="sidebar">
+        <div class="panel-head">
+          <div>
+            <span class="panel-kicker">KNOWLEDGE BASE</span>
+            <h2>Your documents</h2>
+          </div>
+          <button class="icon-btn" id="refreshBtn" title="Refresh">↻</button>
+        </div>
+
+        <label class="dropzone" id="dropzone">
+          <input type="file" id="fileInput" accept=".pdf,.txt,.md">
+          <div class="upload-icon">↑</div>
+          <strong>Drop a document here</strong>
+          <span>or click to browse</span>
+          <small>PDF · TXT · MD</small>
+        </label>
+
+        <div class="upload-progress hidden" id="uploadProgress">
+          <div class="progress-label">
+            <span id="uploadText">Indexing…</span>
+            <span>RAG</span>
+          </div>
+          <div class="progress-track"><div></div></div>
+        </div>
+
+        <div id="documentList" class="document-list">
+          <div class="empty-state">No documents indexed yet.</div>
+        </div>
+      </aside>
+
+      <section class="chat-panel">
+        <div class="chat-head">
+          <div>
+            <span class="panel-kicker">RETRIEVAL + GENERATION</span>
+            <h2>Ask Anything.</h2>
+          </div>
+          <div class="model-tag">Groq · RAG</div>
+        </div>
+
+        <div class="conversation" id="conversation">
+          <div class="welcome-card">
+            <div class="welcome-icon">✦</div>
+            <h3>Your private document copilot.</h3>
+            <p>Upload a document on the left, then ask a question below. Answers are generated from retrieved document context.</p>
+            <div class="suggestions">
+              <button data-question="Summarize the main points of this document.">Summarize the document</button>
+              <button data-question="What are the most important facts in this document?">Important facts</button>
+              <button data-question="List the key topics covered in the document.">Key topics</button>
+            </div>
+          </div>
+        </div>
+
+        <form class="query-bar" id="queryForm">
+          <textarea id="queryInput" rows="1" placeholder="Ask a question about your documents…" autocomplete="off"></textarea>
+          <button type="submit" id="askBtn">
+            <span>Ask</span>
+            <b>↗</b>
+          </button>
+        </form>
+        <div class="hint">Enter to ask · Shift + Enter for a new line</div>
+      </section>
+    </section>
+  </main>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
