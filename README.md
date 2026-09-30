@@ -1,4 +1,4 @@
-# NexusRAG — Document Intelligence Platform
+# DocuSCAN — Document Intelligence Platform
 
 A complete RAG project built with:
 
