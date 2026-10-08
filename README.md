@@ -1,110 +1,111 @@
-# DocuSCAN — Document Intelligence Platform
+# 📄 DocuSCAN — Document Intelligence Platform
 
-A complete RAG project built with:
+DocuSCAN is an AI-powered **Document Intelligence and RAG-based question-answering platform** that allows users to interact with document content using natural language.
+
+The platform uses **FastAPI** for backend API development and **Google Gemini API** to generate contextual responses based on document content.
+
+🔗 **Live Demo:** https://docuscan-fxga.onrender.com/
+
+🔗 **GitHub:** https://github.com/Pranav-Masal/Document-Search-Project-with-RAG
+
+---
+
+## 🚀 Features
+
+### 📄 Document Intelligence
+
+- Process document content for intelligent search
+- Extract and work with relevant document information
+- Ask natural-language questions about document content
+- Generate context-aware answers
+- Reduce the need for manually searching large documents
+
+### 🤖 AI-Powered Question Answering
+
+- Powered by Google Gemini API
+- Context-aware responses
+- Natural-language interaction
+- RAG-based document retrieval approach
+- Relevant document context used for generating responses
+
+### ⚡ Backend API
+
+- Built with FastAPI
+- REST API architecture
+- Request validation
+- Structured API responses
+- Fast and lightweight backend
+
+### 🌐 Web Interface
+
+- Simple and responsive user interface
+- Document-based question answering
+- Interactive chat experience
+- Clean and easy-to-use design
+
+---
+
+## 🛠️ Tech Stack
+
+### Backend
 
 - Python
 - FastAPI
-- Groq API
-- FastEmbed
-- NumPy cosine similarity
-- PyPDF
-- HTML/CSS/JavaScript
+- REST APIs
 
-## Features
+### AI / LLM
 
-- Upload PDF, TXT and Markdown files
-- Local document chunking
-- Local vector embeddings
-- Persistent local vector index
-- Semantic retrieval
-- Groq-powered grounded answers
-- Source/chunk citations
-- Document management
-- Responsive premium UI
-- Health endpoint and FastAPI docs
+- Google Gemini API
+- Retrieval-Augmented Generation (RAG)
+- LLM-based Question Answering
 
-## 1. Create virtual environment
+### Frontend
 
-Windows PowerShell:
+- HTML
+- CSS
+- JavaScript
 
-```powershell
-py -3.12 -m venv venv
-.\venv\Scripts\Activate.ps1
-```
+### Deployment & Tools
 
-If PowerShell blocks activation:
+- Render
+- Git
+- GitHub
+- Environment Variables
 
-```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-.\venv\Scripts\Activate.ps1
-```
+---
 
-## 2. Install packages
-
-```powershell
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-```
-
-## 3. Configure Groq
-
-Copy `.env.example` to `.env`:
-
-```powershell
-Copy-Item .env.example .env
-```
-
-Open `.env` and put your own key:
-
-```env
-GROQ_API_KEY=your_real_key
-```
-
-## 4. Run
-
-```powershell
-uvicorn main:app --reload
-```
-
-Open:
-
-http://127.0.0.1:8000
-
-API docs:
-
-http://127.0.0.1:8000/docs
-
-## First run
-
-The first document upload downloads/initializes the local embedding model. This can take a little longer than later uploads.
-
-## Project structure
+## 🏗️ Architecture
 
 ```text
-DocuSCAN/
-├── main.py
-├── requirements.txt
-├── .env.example
-├── .gitignore
-├── README.md
-├── templates/
-│   └── index.html
-├── static/
-│   ├── css/style.css
-│   └── js/app.js
-└── data/
-    ├── uploads/
-    └── index/
-```
-
-## RAG flow
-
-Document
-→ text extraction
-→ chunking
-→ embeddings
-→ local vector index
-→ similarity retrieval
-→ relevant context
-→ Groq LLM
-→ grounded answer + sources
+                    ┌─────────────────────┐
+                    │       User          │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │    Web Interface    │
+                    │    HTML/CSS/JS       │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │      FastAPI        │
+                    │     REST API        │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │ Document Processing │
+                    │   & Retrieval       │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │       Gemini        │
+                    │      LLM API        │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │ Contextual Answer   │
+                    └─────────────────────┘
